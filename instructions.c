@@ -9,6 +9,9 @@
 void process_instruction(char *instruction, int line_number,
 		int *stack, int *begin)
 {
+	int value = atoi(value_str);
+	char line[100];
+	char *instruction = strtok(line, " \t\n");
 	if (strcmp(instruction, "pint") == 0)
 	{
 		pint(stack, *begin);
@@ -23,7 +26,6 @@ void process_instruction(char *instruction, int line_number,
 					line_number);
 			exit(EXIT_FAILURE);
 		}
-		int value = atoi(value_str);
 
 		push(value, stack, begin);
 	}
@@ -51,13 +53,11 @@ void monty(char *file_path, int *stack, int *begin)
 		exit(EXIT_FAILURE);
 	}
 
-	char line[100];
 	int line_number = 0;
 
 	while (fgets(line, sizeof(line), file))
 	{
 		line_number++;
-		char *instruction = strtok(line, " \t\n");
 
 		if (instruction != NULL && instruction[0] != '#')
 		{
