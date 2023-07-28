@@ -6,11 +6,12 @@
 #include <string.h>
 #define STACK_SIZE 100
 
-void push(int value);
-int pop(void);
-void pint(void);
-void process_instruction(char *instruction, int line_number);
-void monty(char *file_path);
+int pop(int *stack, int *begin);
+void push(int value, int *stack, int *begin);
+void pint(int *stack, int begin);
+void monty(char *file_path, int *stack, int *begin);
+void process_instruction(char *instruction, int line_number,
+                int *stack, int *begin);
 int main(int argc, char *argv[]);
 
 /**
@@ -43,5 +44,5 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-#endif _
+#endif
 _
