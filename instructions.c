@@ -1,5 +1,6 @@
 #include "monty.h"
-void process_instruct(char *instruction, int line_number, int *stack, int *begin)
+void process_instruct(char *instruction, int line_number,
+		int *stack, int *begin)
 {
 	if (strcmp(instruction, "pint") == 0)
 	{
@@ -11,7 +12,8 @@ void process_instruct(char *instruction, int line_number, int *stack, int *begin
 
 		if (value_str == NULL)
 		{
-			fprintf(stderr, "Error: Missing value for push instruction at line %d.\n", line_number);
+			fprintf(stderr, "Error: Missing value for push instruction at line %d.\n",
+					line_number);
 			exit(EXIT_FAILURE);
 		}
 		int value = atoi(value_str);
@@ -20,7 +22,8 @@ void process_instruct(char *instruction, int line_number, int *stack, int *begin
 	}
 	else
 	{
-		fprintf(stderr, "Error: Unknown instruction '%s' at line %d.\n", instruction, line_number);
+		fprintf(stderr, "Error: Unknown instruction '%s' at line %d.\n",
+				instruction, line_number);
 		exit(EXIT_FAILURE);
 	}
 }
