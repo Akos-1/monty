@@ -1,5 +1,12 @@
 #include "monty.h"
-void process_instruct(char *instruction, int line_number,
+/**
+ * process_instruction - processes a single Monty instruction
+ * @line_number: current line number
+ * @stack: an array
+ * @begin: pointer
+ * @instruction: a string
+ */
+void process_instruction(char *instruction, int line_number,
 		int *stack, int *begin)
 {
 	if (strcmp(instruction, "pint") == 0)
@@ -28,6 +35,12 @@ void process_instruct(char *instruction, int line_number,
 	}
 }
 
+/**
+ * monty- entry point
+ * @file_path: file path
+ * @stack: an array
+ * @begin: pointer
+ */
 void monty(char *file_path, int *stack, int *begin)
 {
 	FILE *file = fopen(file_path, "r");
