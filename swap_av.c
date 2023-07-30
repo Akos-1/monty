@@ -13,14 +13,11 @@ int swap(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "Error: L%d: can't swap, stack too short\n", line_number);
 		return (1);
 	}
-
+	int temp = first_node->n;
 	stack_t *first_node = *stack;
 	stack_t *second_node = (*stack)->next;
 
-	int temp = first_node->n;
-
 	first_node->n = second_node->n;
-	
 	second_node->n = temp;
-	return (0); 
+	return (0);
 }

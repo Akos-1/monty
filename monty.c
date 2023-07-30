@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 	while (getline(&line, &buffersize, file) != -1)
 	{
 		process_line(line, line_number, &stack);
-		line_numb++;
+		line_number++;
 	}
 	free(line);
 	fclose(file);
