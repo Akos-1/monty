@@ -20,7 +20,7 @@ void process_line(const char *line, unsigned int line_number, stack_t **stack)
 	if (strcmp(opcode, "push") == 0)
 	{
 		argument = strtok(NULL, " \t\n");
-		if (argument == NULL || !is_number(argument))
+		if (argument == NULL || !is_digit(argument))
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", line_number);
 			exit(EXIT_FAILURE);
@@ -54,5 +54,25 @@ void process_line(const char *line, unsigned int line_number, stack_t **stack)
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
 		exit(EXIT_FAILURE);
 	}
+}
+/**
+ * is_digit - number
+ * Return: 1
+ * @str: string
+ */
+int is_digit(const char *str)
+{
+	if (*str == '-' || *str == '+')
+		str++;
+
+	if (*str == '\0')
+		return (0);
+	while (*str != '\0')
+	{
+		if (!isdigit(*str))
+			return (0);
+		str++;
+	}
+	return (1);
 }
 

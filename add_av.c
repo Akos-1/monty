@@ -15,5 +15,5 @@ void add(stack_t **stack, unsigned int line_number)
 	}
 	feedback = ((*stack)->n) + ((*stack)->next->n);
 	pop(stack, line_number);
-	(*stack)->n = feedback
+	(*stack)->n = feedback;
 }
